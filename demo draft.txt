@@ -1,0 +1,137 @@
+
+
+Database collections
+
+Casual Treatment
+  > id
+  > patient_id
+  > dateOfTreatment
+  > diagnosis:diseases
+  > medications:meds
+  > labtest: labtests
+
+Admissions
+  > id
+  > patiend_id
+  > admissiion_date
+  > initialDiagnosis: diseases
+  > finalDiagnosis: diseases
+  > medical_unit: medical_units[1,2,3,4, icu] 
+  > labtest : labtests  
+  // Day wise treatment
+
+Discharges
+  > id
+  > patiend_id
+  > admission_id
+  > follow_up true/false
+  > follow_up_date
+
+Followups
+  > id
+  > patiend_id
+  > medication
+  > labtests
+  
+
+
+Medications
+Operations
+Diseases/Disgnosis
+
+
+
+
+
+
+
+-----------------------------
+
+ROLES:
+
+{
+  Hospital Login
+  > Verify Births
+
+  > Create Death Events
+
+  > Create Check-in Account
+    > Casual Treatmnent
+    > Admission
+    > Discharge
+
+  > Create Doctor Account
+    > Prescribe meds
+    > Assign tests
+
+  > Create Nurse Account
+    > Follow doctors instructions
+    > by giving dosage
+
+  > Create Lab Account
+    > Create Test
+    > Assign Reports to PatientID
+
+  > Create Pharmacy Account
+    > Assign meds
+}
+
+{
+  Patient
+  > Sign up
+  > View my timeline
+  > view my tests/reports
+  > view my admissions
+  > view my shortTermAdmissions
+  > view my medications
+  > view my diagnosis/diseases
+  > settings
+}
+
+
+
+
+// Changes
+
+Add Gender to Patient collections
+The Gender however is present in the UIDAI db
+
+
+Quick Emergency Care
+  id, checkInDate, checkOutDate, diagnosis, medications:, labtests:\
+
+Full-stay Admission
+  id, checkInDate, checkOutDate, diagnosis, treatment:ObjectId(treatments)
+Follow Up
+
+
+
+Have seperate collection for quickCheckins, admissions, and followups.
+also have a relation between treatment collection with quickCheckins, admissions etc
+
+
+treatment:
+  id, prescriptionDate, diagnosis, 
+
+
+patientDiagnosis
+  id
+  diseases:[a,b,c,d ... zN]
+  status/ active or inactive
+  diagnosis date
+
+
+  
+Treatment:{
+  _id
+  treatmentDate
+  checkin : Schema.ObjectId('checkins')
+  treatmentHospital
+  treatmentBy
+}
+
+
+vitals : treatment
+labtests : treatment
+diseases : treatment 
+medications : treatment
