@@ -18,11 +18,17 @@
 
 ### ✨ [Demo](http://ihealth.mohsinyaqoob.com/demo)
 
-## Install
+## Install Server Dependencies
 
 ```sh
 npm install
 ```
+
+## Install Client Dependencies
+```sh
+cd client && npm install
+```
+
 
 ## Usage
 
