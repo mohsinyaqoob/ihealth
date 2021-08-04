@@ -26,7 +26,7 @@ npm install
 
 ## Install Client Dependencies
 ```sh
-cd client && npm install
+npm install --prefix ./client
 ```
 
 
