@@ -215,8 +215,7 @@ router.get('/complaints', doctorAuthMiddleware, async (req, res) => {
       return res.status(401).json({ errors: [{ msg: 'Invalid Checkin ID' }] })
     }
 
-    const complaints = await Complaint.findOne({ checkin: checkinDetails._id })
-    return res.json({ complaints })
+    return res.json({ complaints: checkinDetails.complaints })
 
   } catch (err) {
     console.log(err.message)

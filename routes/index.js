@@ -5,6 +5,7 @@ module.exports = rootRouter = (app) => {
     // Patient Routes
     app.use('/api/patient/register', require('./patient/register'))
     app.use('/api/patient/auth', require('./patient/auth'))
+    app.use('/api/patient/data', require('./patient/data'))
 
     app.use('/api/hospital/data', require('./hospital/data'))
     app.use('/api/hospital/auth', require('./hospital/auth'))

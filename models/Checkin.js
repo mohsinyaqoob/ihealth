@@ -35,6 +35,9 @@ const CheckInSchema = mongoose.Schema({
     // 3: Treatment Finished
     enum: [1, 2, 3],
     default: 1
+  },
+  complaints: {
+    type: Array
   }
 })
 

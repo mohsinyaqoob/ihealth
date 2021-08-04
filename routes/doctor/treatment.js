@@ -206,39 +206,26 @@ router.post('/diagnosis', doctorAuthMiddleware, async (req, res) => {
  * Private to doctor
  */
 router.post('/complaints', doctorAuthMiddleware, async (req, res) => {
+  const { complaints, checkinId } = req.body;
 
-  const { complaints, checkin } = req.body
-
-  if (complaints.length === 0) {
-    return res.status(401).json({ errors: [{ msg: 'Enter atleast one complaint' }] })
+  // Ensure valid checkinId
+  const checkin = await Checkin.findOne({ _id: checkinId })
+  if (!checkin) {
+    return res.status(401).json({ errors: [{ msg: 'Invalid checkin.' }] })
   }
 
-  try {
+  // Ensure complaints feild is empty
+  const patientComplaints = checkin.complaints;
 
-    // Ensure complaints doesnt already exist for this checkin
-    const cmp = await Complaint.findOne({ checkin })
-    if (cmp) {
-      return res.status(401).json({ errors: [{ msg: 'Complaints already recorded for this patient' }] })
-    }
-
-
-    const checkinDetails = await Checkin.findById(checkin)
-    if (!checkinDetails) {
-      return res.status(401).json({ errors: [{ msg: 'Invalid Checkin ID' }] })
-    }
-
-    const complaint = new Complaint({
-      complaints,
-      checkin: checkinDetails._id,
-      patient: checkinDetails.patientId
-    })
-
-    const savedComplaint = await complaint.save()
-    return res.json({ savedComplaint })
-  } catch (err) {
-    console.log(err.message)
-    return res.status(400).json({ errors: [{ msg: 'Server Error.' }] })
+  if (patientComplaints.length > 0) {
+    return res.status(401).json({ errors: [{ msg: 'Complaints already registered' }] })
   }
+
+  // Add complaints
+  checkin.complaints = complaints;
+  await checkin.save()
+
+  return res.status(201).json({ msg: 'Complaints recorded.' })
 
 })
 
