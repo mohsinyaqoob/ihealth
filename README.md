@@ -18,6 +18,12 @@
 
 ### ✨ [Demo](http://ihealth.mohsinyaqoob.com/demo)
 
+## Clone the project
+
+```sh
+git clone https://github.com/mohsinyaqoob/ihealth.git
+```
+
 ## Install Server Dependencies
 
 ```sh
