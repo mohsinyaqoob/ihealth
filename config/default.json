@@ -1,0 +1,5 @@
+{
+    "dbURI": "mongodb://localhost:27017/ihealth",
+    "jwtSecret": "jwtSecret",
+    "serverApiUrl": "http://localhost:5000"
+}

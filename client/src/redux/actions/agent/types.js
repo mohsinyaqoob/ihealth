@@ -1,0 +1,13 @@
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS"
+export const LOGIN_FAIL = "LOGIN_FAIL"
+export const AGENT_LOADED = "AGENT_LOADED"
+export const AUTH_ERROR = "AUTH_ERROR"
+export const LOGOUT = "LOGOUT"
+
+
+export const PATIENT_FETCH_SUCCESS = "PATIENT_FETCH_SUCCESS"
+export const PATIENT_FETCH_FAIL = "PATIENT_FETCH_FAIL"
+export const RESET_PATIENT = "RESET_PATIENT"
+
+
+
