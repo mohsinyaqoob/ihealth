@@ -1,6 +1,7 @@
 "use strict";
 const nodemailer = require("nodemailer");
 
+// Mailer
 
 const configure = () => {
   // create reusable transporter object using the default SMTP transport
