@@ -21,9 +21,9 @@ const AssignedTestSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'patients'
   },
-  /** 1: No sample, no report
-   * 2: Sampled, no report
-   * 3: Sampled, reported
+  /** 1: Not Initiated
+   * 2: Under Process /  Not Ready
+   * 3: Ready
    */
   testStatus: {
     type: Number,

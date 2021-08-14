@@ -7,13 +7,17 @@ import hospitalAuthReducer from './hospital/auth'
 import agentAuthReducer from './agent/auth'
 import checkInReducer from './agent/checkin'
 import doctorAuthReducer from './doctor/auth'
+import labAuthReducer from './lab/auth'
+import nurseAuthReducer from './nurse/auth'
 
 const rootReducer = combineReducers({
     // Admin
     auth,
 
-    // Patient 
+    // Patient Registration
     patientRegister,
+
+    // Patient Auth
     patientAuth,
 
     // Hospital
@@ -26,7 +30,15 @@ const rootReducer = combineReducers({
     checkInReducer,
 
     // Doctor auth reducer
-    doctorAuthReducer
+    doctorAuthReducer,
+
+    // Lab auth reducer
+    labAuthReducer,
+
+    // Nurse auth reduder
+    nurseAuthReducer
+
+
 });
 
 export default rootReducer;

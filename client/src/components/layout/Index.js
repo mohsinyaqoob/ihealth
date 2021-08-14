@@ -163,7 +163,7 @@ const Index = () => {
                                 </div>
                                 {/* /.card-body */}
                                 <div className="card-footer">
-                                    <Link className="btn btn-primary btn-sm pull-right" to="/admin/login"><i className="mr-2 fas fa-lock"></i>
+                                    <Link className="btn btn-primary btn-sm pull-right" to="/nurse/login"><i className="mr-2 fas fa-lock"></i>
                                         Login</Link>
                                 </div>
                                 {/* /.card-footer*/}
@@ -176,7 +176,9 @@ const Index = () => {
                         <div className="col-md-4">
                             <div className="card card-secondary">
                                 <div className="card-header">
-                                    <h3 className="card-title"><i className="mr-2 fas fa-user"></i>Medical Lab</h3>
+                                    <h3 className="card-title"><i className="mr-2 fas fa-user"></i>
+                                        Medical Lab
+                                    </h3>
                                     <div className="card-tools">
                                         <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
                                             <i className="fas fa-minus" />
@@ -188,7 +190,7 @@ const Index = () => {
                                 </div>
                                 {/* /.card-body */}
                                 <div className="card-footer">
-                                    <Link className="btn btn-primary btn-sm pull-right" to="/agent/login"><i className="mr-2 fas fa-lock"></i>
+                                    <Link className="btn btn-primary btn-sm pull-right" to="/lab/login"><i className="mr-2 fas fa-lock"></i>
                                         Login
                                     </Link>
                                 </div>

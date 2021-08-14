@@ -5,6 +5,7 @@ import {
   AUTH_ERROR,
   LOGOUT
 } from '../../actions/agent/types'
+import removeAuthToken from '../../../utils/removeAuthToken'
 
 const initialState = {
   token: localStorage.getItem('agentToken'),
@@ -31,6 +32,7 @@ const agentAuthReducer = (state = initialState, action) => {
     case LOGIN_FAIL:
     case AUTH_ERROR:
     case LOGOUT:
+      removeAuthToken()
       localStorage.removeItem('agentToken')
       return {
         ...state, isAuthenticated: false, loading: false, token: null, agent: null

@@ -1,0 +1,5 @@
+export const LAB_LOGIN_SUCCESS = "LAB_LOGIN_SUCCESS"
+export const LAB_LOGIN_FAIL = "LAB_LOGIN_FAIL"
+export const LAB_AUTH_ERROR = "LAB_AUTH_ERROR"
+export const LAB_LOADED = "LAB_LOADED"
+export const LAB_LOGOUT = "LAB_LOGOUT"

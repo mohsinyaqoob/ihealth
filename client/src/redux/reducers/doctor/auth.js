@@ -5,6 +5,7 @@ import {
   AUTH_ERROR,
   LOGOUT
 } from '../../actions/doctor/types'
+import removeAuthToken from '../../../utils/removeAuthToken'
 
 const initialState = {
   token: localStorage.getItem('doctorToken'),
@@ -31,6 +32,7 @@ const doctorAuthReducer = (state = initialState, action) => {
     case LOGOUT:
     case LOGIN_FAIL:
     case AUTH_ERROR:
+      removeAuthToken()
       localStorage.removeItem('doctorToken')
       return {
         ...state, isAuthenticated: false, loading: false, token: null, doctor: null

@@ -17,7 +17,7 @@ const Medication = require('../../models/Medication')
 
 /**
  * GET
- * Returns emergency checkins for a given hospital
+ * Returns checkins (emergency, admission or consultation) for a given hospital
  */
 router.get('/checkins', doctorAuthMiddleware, async (req, res) => {
   try {

@@ -22,24 +22,28 @@ router.post('/',
       return res.status(401).json({ errors: errors.array() })
     }
 
-    const { username, password } = req.body
+    try {
+      const { username, password } = req.body
 
-    const doctorRole = await UserRole.findOne({ role_name: 'doctor' })
-    const doctor = await User.findOne({ username, password, role: doctorRole._id })
+      const doctorRole = await UserRole.findOne({ role_name: 'doctor' })
+      const doctor = await User.findOne({ username, password, role: doctorRole._id })
 
-    if (!doctor) {
-      return res.status(404).json({ errors: [{ msg: 'Incorrect username or password' }] })
+      if (!doctor) {
+        return res.status(404).json({ errors: [{ msg: 'Incorrect username or password' }] })
+      }
+
+      // Gen Token Payload
+      const payload = {
+        doctorId: doctor._id
+      }
+      // Sign Token
+      const token = await jwt.sign(payload, config.get('jwtSecret'), { expiresIn: 3600 })
+
+      // Send Token
+      return res.json({ token })
+    } catch (err) {
+      return res.status(400).json({ errors: [{ msg: 'Server Error!' }] })
     }
-
-    // Gen Token Payload
-    const payload = {
-      doctorId: doctor._id
-    }
-    // Sign Token
-    const token = await jwt.sign(payload, config.get('jwtSecret'), { expiresIn: 3600 })
-
-    // Send Token
-    return res.json({ token })
 
   })
 

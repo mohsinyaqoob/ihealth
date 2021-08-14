@@ -6,6 +6,8 @@ import {
   HOSPITAL_LOGOUT
 } from '../../actions/hospital/types'
 
+import removeAuthToken from '../../../utils/removeAuthToken'
+
 const initialState = {
   token: localStorage.getItem('hospitalToken'),
   loading: true,
@@ -29,6 +31,7 @@ const hospitalAuthReducer = (state = initialState, action) => {
     case HOSPITAL_LOAD_FAILED:
     case LOGIN_FAILED:
     case HOSPITAL_LOGOUT:
+      removeAuthToken()
       localStorage.removeItem('hospitalToken')
       return {
         ...state, token: '', loading: false, isAuthenticated: false, hospital: {}

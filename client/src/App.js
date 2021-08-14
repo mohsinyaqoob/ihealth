@@ -24,6 +24,12 @@ import AgentIndex from './components/layout/agent/Index'
 // Doctor Route
 import DoctorIndex from './components/layout/doctor/Index'
 
+// Medical Lab Route
+import LabIndex from './components/layout/lab/Index'
+
+// Nurse Route
+import NurseIndex from './components/layout/nurse/Index'
+
 
 // Third party plugins and libraries
 import { ToastContainer, toast } from 'react-toastify'
@@ -38,7 +44,6 @@ import { Provider } from 'react-redux'
 import store from './redux/store'
 
 toast.configure();
-
 
 const App = () => {
   return (
@@ -55,6 +60,8 @@ const App = () => {
               <Route path="/hospital" component={HospitalIndex} />
               <Route path="/agent" component={AgentIndex} />
               <Route path="/doctor" component={DoctorIndex} />
+              <Route path="/lab" component={LabIndex} />
+              <Route path="/nurse" component={NurseIndex} />
             </Switch>
           </Router>
         </Provider>

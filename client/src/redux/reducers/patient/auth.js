@@ -7,6 +7,7 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL
 } from '../../actions/patient/types'
+import removeAuthToken from '../../../utils/removeAuthToken'
 
 const initialState = {
   patientAuthToken: localStorage.getItem('patientAuthToken'),
@@ -41,6 +42,7 @@ const patientAuth = (state = initialState, action) => {
     case LOGOUT:
     case LOGIN_FAIL:
     case AUTH_ERROR:
+      removeAuthToken()
       localStorage.removeItem('patientAuthToken')
       return {
         ...state, patientAuthToken: '', loading: false, isAuthenticated: false, patient: ''
