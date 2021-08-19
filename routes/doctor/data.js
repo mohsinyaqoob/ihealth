@@ -261,30 +261,33 @@ router.get('/detailedCheckin', doctorAuthMiddleware, async (req, res) => {
   }
 
   try {
+    // 1: Checkin Details
     const checkinDetails = await Checkin.findById(checkinId)
       .populate('patientId', ['firstname', 'lastname', 'contact'])
       .populate('medicalUnit')
       .populate('checkInType')
       .populate('hospital', 'name')
 
-    if (!checkinDetails) {
-      return res.status(404).json({ errors: [{ msg: 'Invalid Checkin ID' }] })
-    }
-
+    // 2: Vitals
     const vitals = await Vitals.find({ checkin: checkinDetails._id })
-    const labTests = await LabTest.find({ checkin: checkinDetails._id })
-    const diseases = await Disease.find({ checkin: checkinDetails._id })
-    const patientComplaints = await Complaint.findOne({ checkin: checkinDetails._id })
-    // Const medications
-    res.json({
-      detailedCheckin: {
-        checkinDetails,
-        vitals,
-        diseases,
-        patientComplaints
-        // Medications pending
-      }
+
+    // 3: Medical Tests and Reports
+    const testReports = await AssignedTest.find({ checkin: checkinDetails._id, testStatus: 2 })
+
+    // 4: Diagnosis
+    const diagnosis = await Diagnosis.find({ checkin: checkinDetails._id })
+
+    // 5: Medications
+    const medications = await Medication.find({ checkin: checkinDetails._id })
+
+    return res.json({
+      checkinDetails,
+      vitals,
+      testReports,
+      diagnosis,
+      medications
     })
+
   } catch (err) {
     console.log(err.message)
     return res.status(400).json({ errors: [{ msg: 'Server Error.' }] })
@@ -310,7 +313,7 @@ router.get('/medications', doctorAuthMiddleware, async (req, res) => {
       return res.status(401).json({ errors: [{ msg: 'Invalid Checkin Id' }] })
     }
 
-    const medications = await Medication.find({ checkin: checkinDetails._id })
+    const medications = await Medication.find({ patient: checkinDetails.patientId })
       .populate('drug', 'drug_name')
       .limit(Number(showTotal))
       .sort({ _id: -1 })

@@ -23,6 +23,7 @@ module.exports = rootRouter = (app) => {
 
     // Lab Routes
     app.use('/api/lab/auth', require('./lab/auth'))
+    app.use('/api/lab/data', require('./lab/data'))
 
     // Nurse Routes
     app.use('/api/nurse/auth', require('./nurse/auth'))

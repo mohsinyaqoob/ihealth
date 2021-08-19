@@ -1,7 +1,9 @@
 const express = require('express');
 const app = express();
+const fileUpload = require('express-fileupload')
 
 app.use(express.json())
+app.use(fileUpload())
 
 const rootRouter = require('./routes');
 const Connect = require('./db/Connect')

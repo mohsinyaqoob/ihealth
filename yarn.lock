@@ -202,6 +202,13 @@
   "resolved" "https://registry.npmjs.org/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz"
   "version" "1.0.1"
 
+"busboy@^0.3.1":
+  "integrity" "sha512-y7tTxhGKXcyBxRKAni+awqx8uqaJKrSFSNFSeRG5CsWNdmy2BIK+6VGWEW7TZnIO/533mtMEA4rOevQV815YJw=="
+  "resolved" "https://registry.npmjs.org/busboy/-/busboy-0.3.1.tgz"
+  "version" "0.3.1"
+  dependencies:
+    "dicer" "0.3.0"
+
 "bytes@3.1.0":
   "integrity" "sha512-zauLjrfCG+xvoyaqLoV8bLVXXNGC4JqlxFCutSDWA6fJrTo2ZuvLYTqZ7aHBLZSMOopbzwv8f+wZcVzfVTI2Dg=="
   "resolved" "https://registry.npmjs.org/bytes/-/bytes-3.1.0.tgz"
@@ -444,6 +451,13 @@
   "resolved" "https://registry.npmjs.org/destroy/-/destroy-1.0.4.tgz"
   "version" "1.0.4"
 
+"dicer@0.3.0":
+  "integrity" "sha512-MdceRRWqltEG2dZqO769g27N/3PXfcKl04VhYnBlo2YhH7zPi88VebsjTKclaOyiuMaGU72hTfw3VkUitGcVCA=="
+  "resolved" "https://registry.npmjs.org/dicer/-/dicer-0.3.0.tgz"
+  "version" "0.3.0"
+  dependencies:
+    "streamsearch" "0.1.2"
+
 "dot-prop@^5.2.0":
   "integrity" "sha512-QM8q3zDe58hqUqjraQOmzZ1LIH9SWQJTlEKCH4kJ2oQvLZk7RbQXvtDM2XEq3fwkV9CCvvH4LA0AV+ogFsBM2Q=="
   "resolved" "https://registry.npmjs.org/dot-prop/-/dot-prop-5.3.0.tgz"
@@ -521,6 +535,13 @@
   "integrity" "sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc="
   "resolved" "https://registry.npmjs.org/etag/-/etag-1.8.1.tgz"
   "version" "1.8.1"
+
+"express-fileupload@^1.2.1":
+  "integrity" "sha512-fWPNAkBj+Azt9Itmcz/Reqdg3LeBfaXptDEev2JM8bCC0yDptglCnlizhf0YZauyU5X/g6v7v4Xxqhg8tmEfEA=="
+  "resolved" "https://registry.npmjs.org/express-fileupload/-/express-fileupload-1.2.1.tgz"
+  "version" "1.2.1"
+  dependencies:
+    "busboy" "^0.3.1"
 
 "express-validator@^6.10.0":
   "integrity" "sha512-gDtepU94EpUzgFvKO/8JzjZ4uqIF4xHekjYtcNgFDiBK6Hob3MQhPU8s/c3NaWd1xi5e5nA0oVmOJ0b0ZBO36Q=="
@@ -1495,6 +1516,11 @@
   "integrity" "sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow="
   "resolved" "https://registry.npmjs.org/statuses/-/statuses-1.5.0.tgz"
   "version" "1.5.0"
+
+"streamsearch@0.1.2":
+  "integrity" "sha1-gIudDlb8Jz2Am6VzOOkpkZoanxo="
+  "resolved" "https://registry.npmjs.org/streamsearch/-/streamsearch-0.1.2.tgz"
+  "version" "0.1.2"
 
 "string_decoder@~1.1.1":
   "integrity" "sha512-n/ShnvDi6FHbbVfviro+WojiFzv+s8MPMHBczVePfUpDJLwoLT0ht1l4YwBCbi8pJAveEEdnkHyPyTP/mzRfwg=="

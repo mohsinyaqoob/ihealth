@@ -13,6 +13,7 @@ import ConsultationIndex from './Consultation/Index'
 import Treatment from './Patient/Treatment'
 import RecordVitals from './Patient/RecordVitals'
 import AllVitals from './Patient/AllVitals'
+import AllMedications from './Patient/AllMedications'
 
 const Dashboard = ({ loading, nurse }) => {
   return (
@@ -27,6 +28,7 @@ const Dashboard = ({ loading, nurse }) => {
         <Route exact path="/nurse/dashboard/treatment/:checkinId" component={Treatment} />
         <Route exact path="/nurse/dashboard/recordVitals/:checkinId" component={RecordVitals} />
         <Route exact path="/nurse/dashboard/allVitals/:checkinId" component={AllVitals} />
+        <Route exact path="/nurse/dashboard/allMedications/:checkinId" component={AllMedications} />
       </Switch>
       <Footer />
     </>

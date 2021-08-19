@@ -4,6 +4,7 @@ const router = express.Router()
 const nurseAuthMiddleware = require('../../middleware/nurse/nurseAuthMiddleware')
 const CheckInType = require('../../models/CheckInTypes')
 const Checkin = require('../../models/Checkin')
+const Medication = require('../../models/Medication')
 
 /**
  * GET
@@ -112,6 +113,39 @@ router.get('/vitals', nurseAuthMiddleware, async (req, res) => {
     console.log(err.message)
     return res.status(400).json({ errors: [{ msg: 'Server Error.' }] })
   }
+})
+
+/**
+ * GET
+ * Returns a list of medicines for a patientId
+ * Private
+ */
+router.get('/medications', nurseAuthMiddleware, async (req, res) => {
+  const { checkinId, showTotal } = req.query;
+  if (!checkinId) {
+    return res.status(404).json({ errors: [{ msg: 'Invalid Checkin Id' }] })
+  }
+
+  try {
+
+    const checkinDetails = await Checkin.findById(checkinId)
+    if (!checkinDetails) {
+      return res.status(401).json({ errors: [{ msg: 'Invalid Checkin Id' }] })
+    }
+
+    const medications = await Medication.find({ patient: checkinDetails.patientId })
+      .populate('drug', 'drug_name')
+      .limit(Number(showTotal))
+      .sort({ _id: -1 })
+    return res.json({ medications })
+
+  } catch (err) {
+    console.log(err.message)
+    return res.status(500).json({ errors: [{ msg: 'Server Error.' }] })
+  }
+
+
+
 })
 
 

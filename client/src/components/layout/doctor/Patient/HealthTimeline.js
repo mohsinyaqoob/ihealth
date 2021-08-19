@@ -55,7 +55,7 @@ const HealthTimeline = ({ checkinId }) => {
               </span>
               <p className="mt-2 text-gray text-bold">
                 <span className="text-gray">
-                  {checkin.complaints.map(cmp => (<span className="text-gray">#{cmp + " "}</span>))}
+                  {checkin.complaints.map((cmp, index) => (<span className="text-gray" id={index}>#{cmp + " "}</span>))}
                 </span>
               </p>
               <p className="mb-2">
@@ -72,7 +72,6 @@ const HealthTimeline = ({ checkinId }) => {
                   View Detailed
                 </Link>
               </div>
-              {console.log("DISPLAY: .", checkin)}
               <hr className="mt-2 mb-2 bg-black text-dark" />
             </li>
           ))}

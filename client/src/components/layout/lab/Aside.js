@@ -49,17 +49,17 @@ const Aside = ({ loading, lab }) => {
                 </p>
               </Link>
             </li>
-            <li className="nav-header text-bold text-danger">RECORD</li>
+            <li className="nav-header text-bold text-danger">LABORATORY</li>
             <li className="nav-item">
-              <Link title="Admission and Discharge agents" to="/lab/dashboard/labInvestigation" className="nav-link">
+              <Link title="Admission and Discharge agents" to="/lab/dashboard/bodyFluidInvestigation" className="nav-link">
                 <i className="nav-icon fas fa-flask" />
                 <p>
-                  Lab Investigation
+                  Blood / Serum / Fluid
                 </p>
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/lab/dashboard/imaging" className="nav-link">
+              <Link to="/lab/dashboard/imageInvestigation" className="nav-link">
                 <i className="nav-icon fas fa-camera" />
                 <p>
                   Imaging

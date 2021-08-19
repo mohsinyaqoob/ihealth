@@ -38,17 +38,20 @@ const RecentTests = ({ checkinId, showTotal = 3 }) => {
           <div>
             {
               !loading && labtests.length > 0 ? labtests.map(labtest => (
-                <a href="#!" key={labtest._id} className="list-group-item list-group-item-action">
+                <a target="blank" href={`${labtest.testStatus === 1 ? '#!' : labtest.report}`} key={labtest._id} className="list-group-item list-group-item-action"
+                >
                   <i className="mr-2 fas fa-medkit"></i>
-                  <span className="text-bold bg-red p-1 mr-2">
+                  <span className={`p-1 mr-2 text-bold ${labtest.testStatus === 1 ? 'bg-red' : 'bg-green'}`}>
                     {labtest.assignedTest.test_name} {' '}
                   </span>
-                  recorded at
+                  prescribed at
                   <span className="ml-2 text-gray">
                     <Moment format="DD MMM YYYY">{labtest.assignedDate}</Moment>
                   </span>
                   <span className="float-right">
-                    {labtest.testStatus === 1 ? (<i className="fas fa-times-circle text-red"></i>) : (labtest.testStatus === 2 ? (<i className="fas fa-exclamation-circle text-warning"></i>) : (<i className="fas fa-check-circle text-green"></i>))}
+                    {
+                      labtest.testStatus === 1 ? <i className="fas fa-times-circle text-red"></i> : <i className="fas fa-check-circle text-green"></i>
+                    }
                   </span>
                 </a>
               )) : (<span className="text-gray">No tests added...</span>)

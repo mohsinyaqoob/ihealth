@@ -8,7 +8,7 @@ import Swal from 'sweetalert2/dist/sweetalert2.js'
 
 import setAuthToken from '../../../../utils/setAuthToken'
 
-const PatientDetails = ({ checkinId }) => {
+const PatientDetails = ({ checkinId, showFinishTreatment = true }) => {
 
   const [patientDetails, setPatientDetails] = useState({})
   const [patientLoading, setPatientLoading] = useState(true)
@@ -53,7 +53,9 @@ const PatientDetails = ({ checkinId }) => {
           </Link>
         </div>
         <div className="card-tools">
-          <button onClick={handleDischargeClick} className="btn btn-danger btn-sm">Finish Treatment</button>
+          {
+            showFinishTreatment && <button onClick={handleDischargeClick} className="btn btn-danger btn-sm">Finish Treatment</button>
+          }
         </div>
       </div>
       <div className="p-0 card-body">

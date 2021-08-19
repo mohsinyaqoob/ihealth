@@ -14,7 +14,7 @@ const Navbar = ({ loading, doctor, logout }) => {
         <li className="nav-item d-none d-sm-inline-block">
           <a href="#!" className="nav-link">
             <i className="mr-2 fas fa-hospital"></i>
-            {!loading && doctor && doctor.hospital.name}
+            {!loading && doctor && doctor.hospital && doctor.hospital.name}
           </a>
         </li>
       </ul>

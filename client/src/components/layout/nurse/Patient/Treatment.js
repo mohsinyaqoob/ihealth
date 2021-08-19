@@ -2,6 +2,7 @@ import React from 'react'
 import HealthTimeline from './HealthTimeline'
 import PatientDetails from './PatientDetails'
 import RecentVitals from './RecentVitals'
+import RecentMedications from './RecentMedications'
 
 const Treatment = props => {
   const checkinId = props.match.params.checkinId
@@ -43,8 +44,8 @@ const Treatment = props => {
             <div className="col-md-7">
               {/* Health Timeline */}
               <RecentVitals checkinId={checkinId} showTotal={5} />
-              <RecentVitals checkinId={checkinId} showTotal={5} />
-              <h1>View Medications</h1>
+              {/* View Medications */}
+              <RecentMedications checkinId={checkinId} showTotal={10} />
             </div>
             <div className="col-md-5">
               {/* Recent Info */}
