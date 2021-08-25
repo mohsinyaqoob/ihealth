@@ -1,3 +1,14 @@
 body{
   font-family: 'Inter';
 }
+
+@media print {
+    .pagebreakafter {
+        page-break-after: always;
+    }
+
+    .pagebreakbefore {
+        page-break-before: always;
+    }
+
+}
