@@ -66,41 +66,6 @@ const Aside = ({ loading, lab }) => {
                 </p>
               </Link>
             </li>
-            <li className="nav-header text-bold text-primary">VIEW</li>
-            <li className="nav-item">
-              <Link to="/lab/dashboard/users" className="nav-link">
-                <i className="nav-icon fas fa-users" />
-                <p>
-                  Reports
-                </p>
-              </Link>
-            </li>
-
-            <li className="nav-header">LIFE EVENTS</li>
-            <li className="nav-item">
-              <Link to="/lab/dashboard/birthVerifications" className="nav-link">
-                <i className="fas fa-check nav-icon text-success"></i>
-                <p>Birth Verifications</p>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/lab/dashboard/createBirthEvent" className="nav-link">
-                <i className="fas fa-baby nav-icon text-success"></i>
-                <p>Create Birth Event</p>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/lab/dashboard/createDeathEvent" className="nav-link">
-                <i className="fas fa-skull nav-icon text-danger"></i>
-                <p>Create Death Event</p>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/lab/dashboard/lifeEvents" className="nav-link">
-                <i className="fas fa-copy nav-icon text-warning"></i>
-                <p>View Events</p>
-              </Link>
-            </li>
           </ul>
         </nav>
         {/* /.sidebar-menu */}

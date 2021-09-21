@@ -58,7 +58,9 @@ router.post('/', [
 router.get('/', labAuthMiddleware, async (req, res) => {
   const { labId } = req;
   try {
+
     const role = await UserRole.findOne({ role_name: 'laboratory' })
+
     const lab = await User.findOne({ _id: labId, role: role._id })
       .populate('hospital', 'name')
       .select('-password')
@@ -68,6 +70,7 @@ router.get('/', labAuthMiddleware, async (req, res) => {
     }
 
     return res.json({ lab })
+
   } catch (err) {
     console.log(err.message)
     return res.status(400).json({ errors: [{ msg: 'Server Error.' }] })

@@ -234,9 +234,10 @@ const Export = props => {
             {
               !loading && checkinDetails ? checkinDetails.testReports.map(report => (
                 <React.Fragment key={report._id}>
+                  <p style={{ pageBreakAfter: 'always' }}></p>
                   <img src={report.report} className="img-fluid" width={'50%'} alt="Test Report" />
 
-                  <p style={{ pageBreakAfter: 'always' }}>{/* pagebreak */}</p>
+                  {/* pagebreak */}
 
                 </React.Fragment>
               )) : <p></p>
