@@ -6,7 +6,7 @@ const Connect = async () => {
         await mongoose.connect(config.get('dbURI'), { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
         console.log('Database Server running on port 27017')
     } catch (err) {
-        console.log('Database connection error.', err)
+        console.log('Database connection error.', err.message)
         process.exit(0);
     }
 }

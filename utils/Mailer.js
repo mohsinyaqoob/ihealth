@@ -11,7 +11,7 @@ const configure = () => {
     secure: false, // true for 465, false for other ports
     auth: {
       user: 'mohsinyqb@gmail.com',
-      pass: 'your-password',
+      pass: 'Pathmaker999@',
     },
   });
 }

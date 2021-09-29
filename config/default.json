@@ -1,5 +1,6 @@
 {
     "dbURI": "mongodb://localhost:27017/ihealth",
+    "_dbURI": "mongodb+srv://mohsinyaqoob:Password%4012345@ihealth.bct45.mongodb.net/ihealth?retryWrites=true&w=majority",
     "jwtSecret": "jwtSecret",
     "serverApiUrl": "http://localhost:5000"
 }

@@ -22,10 +22,10 @@ export const loadHospital = () => async dispatch => {
         })
     } catch (err) {
         console.log(err)
-        // const errors = err.response.data.errors;
-        // if (errors) {
-        //     errors.forEach(error => toast(error.msg, { type: 'error' }))
-        // }
+        const errors = err.response.data.errors;
+        if (errors) {
+            errors.forEach(error => toast(error.msg, { type: 'error' }))
+        }
         dispatch({
             type: HOSPITAL_LOAD_FAILED
         })
